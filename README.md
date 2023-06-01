@@ -331,8 +331,7 @@ exploit the computational capabilities of modern processors and parallel
 computing architectures. By effectively utilizing SIMD (Single
 Instruction, Multiple Data) instructions and data-level parallelism, we
 can leverage the inherent parallelism within reduction operations to
-achieve higher throughput and increased computational efficiency. Link
-to github repository: https://github.com/sgiglio11/HPC_Submission
+achieve higher throughput and increased computational efficiency.
 
 # Bibliography
 
