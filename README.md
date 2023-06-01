@@ -1,5 +1,5 @@
 # HPC_Submission
-Repository for the HPC project: Vectorized MPI Reduction Optimization: enhancing performance through AVX made by Antonio Genovese, Simone Giglio, Davide Iovino.
+Repository for the HPC project: Vectorized MPI Reduction Optimization: enhancing performance through AVX made by [Antonio Genovese](https://github.com/antoniogenovese), Simone Giglio, [Davide Iovino](https://github.com/davideiov).
 
 ## Abstract
   This paper implements a novel approach to distributed computing using
