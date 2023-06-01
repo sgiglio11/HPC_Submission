@@ -1,8 +1,7 @@
 # HPC_Submission
 Repository for the HPC project: Vectorized MPI Reduction Optimization: enhancing performance through AVX made by Antonio Genovese, Simone Giglio, Davide Iovino.
 
----
-abstract: |
+## Abstract
   This paper implements a novel approach to distributed computing using
   MPI reduction combined with vectorization techniques. In
   high-performance computing, MPI reduction is a commonly used operation
@@ -30,10 +29,10 @@ abstract: |
   computational efficiency and memory usage, highlighting the importance
   of optimizing vectorization for specific hardware configurations.
 author:
-- 
 title: "Vectorized MPI Reduction Optimization: enhancing performance
   through AVX"
 ---
+
 
 # Introduction
 
@@ -271,14 +270,17 @@ compared the sequential version to the standard one which uses only the
 MPI standards procedures, It runs 75 times the execution and then
 computes the arithmetic mean.
 
+## Strong Scalability (execution time) with fixed size of $2^{29} = 536870912
 <img title="Strong Scalability (execution time) with fixed size of
 $2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_exec.jpg">
 
+## Strong Scalability (speed up) with fixed size of $2^{29} = 536870912
 <img title="Strong Scalability (execution time) with fixed size of
-$2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_exec.jpg">
+$2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_speedup.jpg">
 
+## Weak Scalability with fixed size of $2^{25} = 33554432$ for each process
 <img title="Strong Scalability (execution time) with fixed size of
-$2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_exec.jpg">
+$2^{29} = 536870912$." alt="Alt text" src="/images/weak_scalability.jpg">
 
 **Strong scalability.** Strong scaling concerns the speedup for a fixed
 problem size with variation of the number of processors, and it is
@@ -333,8 +335,8 @@ can leverage the inherent parallelism within reduction operations to
 achieve higher throughput and increased computational efficiency. Link
 to github repository: https://github.com/sgiglio11/HPC_Submission
 
-::: thebibliography
-1
+# Bibliography
+
 
 Dong Zhong, Qinglei Cao, George Bosilca, Jack Dongarra. *Using long
 vector extensions for MPI reductions.* 1em plus 0.5em minus 0.4em .
