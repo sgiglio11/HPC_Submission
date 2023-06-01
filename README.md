@@ -171,42 +171,41 @@ at: https://github.com/sgiglio11/HPC_Submission
 
 ``` {.objectivec language="C"}
 procedure reduce_array(array, length, reduction_operator) {
- bool isVectorsEven = false;
+    bool isVectorsEven = false;
 
- for(; length != 8; length >>= 1){
-  if(isVectorsEven)
-   length += 4;
+    for(; length != 8; length >>= 1){
+        if(isVectorsEven)
+            length += 4;
 
-  isVectorsEven = false;
+        isVectorsEven = false;
 
-  #pragma omp unroll
-  for (int i=0, j=0; i<length; i+=16, j+=8){
-   if(i+8 < length) {
-    __m256 vect1 = _mm256_loadu(array+i);
-    __m256 vect2 = _mm256_loadu(array+(i+8));
+        #pragma omp unroll
+        for (int i=0, j=0; i<length; i+=16, j+=8){
+            if(i+8 < length) {
+                __m256 vect1 = _mm256_loadu(array+i);
+                __m256 vect2 = _mm256_loadu(array+(i+8));
 
-    __m256 result;
+                __m256 result;
 
-    //case 0 add, case 1 mul, case 2 min, case 3 max
-    switch(reduction_operator){
-     case 0:result=_mm256_add_ps(vect1,vect2);
-     break;
-     case 1:result=_mm256_mul_ps(vect1,vect2);
-     break;
-     case 2:result=_mm256_min_ps(vect1,vect2);
-     break;
-     case 3:result=_mm256_max_ps(vect1,vect2);
-     break;
+                //case 0 add, case 1 mul, case 2 min, case 3 max
+                switch(reduction_operator){
+                    case 0: result = _mm256_add_ps(vect1,vect2);
+                    break;
+                    case 1: result = _mm256_mul_ps(vect1,vect2);
+                    break;
+                    case 2: result = _mm256_min_ps(vect1,vect2);
+                    break;
+                    case 3: result = _mm256_max_ps(vect1,vect2);
+                    break;
+                }
+                _mm256_storeu(array + j, result);
+            } else {
+                move(array + j, array+i, 8 * sizeof(float));
+                isVectorsEven = true;
+            }
+        }
     }
-
-    _mm256_storeu(array + j, result);
-   } else {
-    move(array + j, array+i, 8 * sizeof(float));
-    isVectorsEven = true;
-   }
-  }
- }
- return reduce_arr_to_flt(array, 8, reduction_operator);
+    return reduce_arr_to_flt(array, 8, reduction_operator);
 }
 ```
 
@@ -270,11 +269,11 @@ compared the sequential version to the standard one which uses only the
 MPI standards procedures, It runs 75 times the execution and then
 computes the arithmetic mean.
 
-## Strong Scalability (execution time) with fixed size of $2^{29} = 536870912
+## Strong Scalability (execution time) with fixed size of $2^{29} = 536870912$
 <img title="Strong Scalability (execution time) with fixed size of
 $2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_exec.jpg">
 
-## Strong Scalability (speed up) with fixed size of $2^{29} = 536870912
+## Strong Scalability (speed up) with fixed size of $2^{29} = 536870912$
 <img title="Strong Scalability (execution time) with fixed size of
 $2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_speedup.jpg">
 
