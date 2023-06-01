@@ -35,7 +35,7 @@ title: "Vectorized MPI Reduction Optimization: enhancing performance
   through AVX"
 ---
 
-# Introduction {#sec:intro}
+# Introduction
 
 **Motivation.** Parallel and distributed computing has become essential
 for addressing the computational challenges posed by large-scale
@@ -63,7 +63,7 @@ partition the processes into a hierarchy and perform the reduction
 operation in a structured manner. In the last release of OpenMPI (v4.1),
 AVX support was added for MPI collective reduction operations \[2\].
 
-# Background: MPI Reduction {#sec:background}
+# Background: MPI Reduction
 
 **MPI.** MPI is a standard that includes point-to-point message-passing,
 collective communications, group and communicator concepts, process
@@ -110,7 +110,7 @@ simultaneous processing of 8 single-precision floating-point numbers or
 enables higher computational throughput and improved parallelism, making
 it well-suited for data-intensive operations in parallel computing.
 
-# Proposed Method {#sec:yourmethod}
+# Proposed Method
 
 **Overview.** In this chapter, we present our proposed method for
 enhancing the efficiency of MPI reduction through vectorization
@@ -255,7 +255,7 @@ void reduce_array_mpi_vec(array, length, reduction_operator, my_rank, nproc, roo
 }
 ```
 
-# Experimental Results {#sec:exp}
+# Experimental Results
 
 **Experimental setup.** For our benchmarks we have used one node
 composed by 12 vCPU Intel (R) Core (TM) i7-8750H CPU @ 2.20 GHz and 16GB
@@ -271,16 +271,14 @@ compared the sequential version to the standard one which uses only the
 MPI standards procedures, It runs 75 times the execution and then
 computes the arithmetic mean.
 
-![Strong Scalability (execution time) with fixed size of
-$2^{29} = 536870912$.[]{#fftperf
-label="fftperf"}](images/strong_scalability_exec.pdf){#fftperf}
+<img title="Strong Scalability (execution time) with fixed size of
+$2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_exec.jpg">
 
-![Strong Scalability (speed up) with fixed size of
-$2^{29} = 536870912$.[]{#fftperf
-label="fftperf"}](images/strong_Scalability_speedup.pdf){#fftperf}
+<img title="Strong Scalability (execution time) with fixed size of
+$2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_exec.jpg">
 
-![Weak Scalability with fixed size of $2^{25} = 33554432$ for each
-process.[]{#fftperf label="fftperf"}](images/weak_scalability.pdf){#fftperf}
+<img title="Strong Scalability (execution time) with fixed size of
+$2^{29} = 536870912$." alt="Alt text" src="/images/strong_scalability_exec.jpg">
 
 **Strong scalability.** Strong scaling concerns the speedup for a fixed
 problem size with variation of the number of processors, and it is
