@@ -286,7 +286,7 @@ problem size with variation of the number of processors, and it is
 governed by Amdahl's law. For our experiments we have chosen to run the
 strong scalability experiments' with an array size of
 $2^{29} = 536870912$ while the number of processors changes from
-$2^{1} $ to $ 2^{4}$.
+$2^{1}$ to $2^{4}$.
 
 **Weak scalability.** Weak scaling concerns the speedup for a scaled
 problem size respect to the number of processors, and it is governed by
@@ -337,20 +337,18 @@ achieve higher throughput and increased computational efficiency.
 
 
 Dong Zhong, Qinglei Cao, George Bosilca, Jack Dongarra. *Using long
-vector extensions for MPI reductions.* 1em plus 0.5em minus 0.4em .
+vector extensions for MPI reductions.*
 
-OpenMPI. *Major User-Noticeable Changes Across Major Release Series* 1em
-plus 0.5em minus 0.4em URL:
-https://www.open-mpi.org/software/ompi/major-changes.php
+OpenMPI. *Major User-Noticeable Changes Across Major Release Series*
+URL: https://www.open-mpi.org/software/ompi/major-changes.php
 
 Message Passing Interface Forum. *MPI: A Message-Passing Interface
-Standard Version 4.0* 1em plus 0.5em minus 0.4em URL:
-https://www.mpi-forum.org/docs/mpi-4.0/mpi40-report.pdf 2021.
+Standard Version 4.0*
+URL: https://www.mpi-forum.org/docs/mpi-4.0/mpi40-report.pdf
 
-Intel. *Intel® Intrinsics Guide v3.6.6* 1em plus 0.5em minus 0.4em URL:
-https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html
+Intel. *Intel® Intrinsics Guide v3.6.6*
+URL: https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html
 
 Sascha Hunold, Alexandra Carpen-Amarie. *Reproducible MPI Benchmarking
-Is Still Not As Easy As You Think* 1em plus 0.5em minus 0.4em URL:
-http://hunoldscience.net/paper/mpi_measure_sahu_2016.pdf
+Is Still Not As Easy As You Think* URL: http://hunoldscience.net/paper/mpi_measure_sahu_2016.pdf
 :::
