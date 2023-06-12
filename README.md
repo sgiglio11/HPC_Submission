@@ -1,6 +1,30 @@
 # HPC_Submission
 Repository for the HPC project: Vectorized MPI Reduction Optimization: enhancing performance through AVX made by [Antonio Genovese](https://github.com/antoniogenovese), Simone Giglio, [Davide Iovino](https://github.com/davideiov).
 
+## Execution Setup
+As following, there are the instructions to compiile and execute the file codes in this repository. At start you need to follow this points:
+* Need to install OpenMP;
+* Need to install OpenMPI;
+* Need an architecture that supports AVX2;
+
+To compile the sequential version you need to use the following command: 
+``` {.objectivec language="C"}
+gcc seq.c -o seq
+```
+To execute the sequential version you need to use the following command:
+``` {.objectivec language="C"}
+./seq <NUMBER_OF_ELEMENTS> <REDUCTION_OPERATOR>
+```
+To compile the parallel version you need to use the following command: 
+``` {.objectivec language="C"}
+mpicc -fopenmp -mavx [<FLAG>] main.c -o main 
+```
+To execute the parallel version you need to use the following command:
+``` {.objectivec language="C"}
+mpirun -np <PROCESSES_NUMBER> ./main <NUMBER_OF_ELEMENTS> <REDUCTION_OPERATOR>
+```
+Please note: the <NUMBER_OF_ELEMENTS> and the <PROCESSES_NUMBER> must be a power of 2. <REDUCTION_OPERATOR> can be 0 for the sum, 1 for multiplication, 2 for minimum and 3 for maximum. For <FLAG> you can choose -O0 to avoid optimizations or -O3 otherwise.
+
 ## Abstract
   This paper implements a novel approach to distributed computing using
   MPI reduction combined with vectorization techniques. In
