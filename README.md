@@ -9,7 +9,7 @@ As following, there are the instructions to compiile and execute the file codes 
 
 To compile the sequential version you need to use the following command: 
 ``` {.objectivec language="C"}
-gcc seq.c -o seq
+gcc -fopenmp seq.c -o seq
 ```
 To execute the sequential version you need to use the following command:
 ``` {.objectivec language="C"}
